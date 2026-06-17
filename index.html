@@ -191,3 +191,100 @@ shadow-intensity="2">
 
 </body>
 </html>
+<div style="
+background:white;
+padding:20px;
+border-radius:20px;
+margin-top:20px;
+text-align:center;
+">
+
+<h2>🧾 Order Summary</h2>
+
+<p>
+Items: <span id="count2">0</span>
+</p>
+
+<p>
+Total Bill: ₹<span id="total2">0</span>
+</p>
+
+<a id="whatsappBtn"
+href="#"
+target="_blank"
+style="
+display:block;
+padding:15px;
+margin-top:15px;
+background:#25D366;
+color:white;
+text-decoration:none;
+font-size:22px;
+font-weight:bold;
+border-radius:15px;
+">
+📲 Order On WhatsApp
+</a>
+
+</div>
+
+<script>
+
+let total=0;
+let count=0;
+let orderItems=[];
+
+function addItem(name,price){
+
+count++;
+total+=price;
+
+orderItems.push(name);
+
+document.getElementById("count").innerText=count;
+document.getElementById("count2").innerText=count;
+
+document.getElementById("total").innerText=total;
+document.getElementById("total2").innerText=total;
+
+alert(name + " Added To Cart");
+
+updateWhatsapp();
+}
+
+function updateWhatsapp(){
+
+let customer=
+document.getElementById("customerName").value;
+
+let table=
+document.getElementById("tableNumber").value;
+
+let msg=
+"🍽️ NEW ORDER%0A%0A"+
+"Customer: "+customer+"%0A"+
+"Table: "+table+"%0A%0A"+
+"Items:%0A"+
+orderItems.join("%0A")+
+"%0A%0ATotal Bill ₹"+total;
+
+document.getElementById("whatsappBtn").href=
+"https://wa.me/9162035250?text="+msg;
+}
+
+function placeOrder(){
+
+updateWhatsapp();
+
+alert(
+"✅ Order Ready To Send!\n\n"+
+"Items: "+count+
+"\nTotal ₹"+total
+);
+
+}
+
+</script>
+
+</body>
+</html>
