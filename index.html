@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D Restaurant Menu</title>
+
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+<style>
+body{
+font-family: Arial, sans-serif;
+background:#f4f4f4;
+margin:0;
+padding:20px;
+text-align:center;
+}
+
+h1{
+background:#ff6b00;
+color:white;
+padding:15px;
+border-radius:10px;
+}
+
+.card{
+background:white;
+margin:20px auto;
+padding:15px;
+border-radius:15px;
+max-width:600px;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+model-viewer{
+width:100%;
+height:350px;
+background:#eee;
+border-radius:10px;
+}
+
+.price{
+font-size:22px;
+font-weight:bold;
+color:green;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🍽️ 3D Restaurant Menu</h1>
+
+<div class="card">
+<h2>🍕 Pizza</h2>
+<model-viewer src="pizza.glb" camera-controls auto-rotate></model-viewer>
+<p class="price">₹199</p>
+</div>
+
+<div class="card">
+<h2>🍔 Hamburger</h2>
+<model-viewer src="hamburger_3d_model.glb" camera-controls auto-rotate></model-viewer>
+<p class="price">₹199</p>
+</div>
+
+<div class="card">
+<h2>🥟 Momos</h2>
+<model-viewer src="momo.glb" camera-controls auto-rotate></model-viewer>
+<p class="price">₹199</p>
+</div>
+
+<div class="card">
+<h2>🍟 French Fries</h2>
+<model-viewer src="french-fries.glb" camera-controls auto-rotate></model-viewer>
+<p class="price">₹199</p>
+</div>
+
+<div class="card">
+<h2>🍛 Biryani</h2>
+<model-viewer src="biryani.glb" camera-controls auto-rotate></model-viewer>
+<p class="price">₹198</p>
+</div>
+
+</body>
+</html>
