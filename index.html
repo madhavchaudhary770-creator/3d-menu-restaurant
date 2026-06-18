@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Madhav Restaurant</title>
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<title>
+Madhav Restaurant
+</title>
 
 <script type="module"
 src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
 </script>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
 
 <style>
 
@@ -36,6 +42,7 @@ background-position:center;
 background-attachment:fixed;
 
 padding:15px;
+
 }
 
 .header{
@@ -44,11 +51,11 @@ background:rgba(0,0,0,.65);
 
 backdrop-filter:blur(15px);
 
-border:2px solid #d4af37;
-
 padding:25px;
 
 border-radius:25px;
+
+border:2px solid gold;
 
 text-align:center;
 
@@ -60,21 +67,19 @@ margin-bottom:20px;
 
 .logo{
 
-font-size:65px;
+font-size:70px;
 
 }
 
 .title{
 
-font-size:35px;
+font-size:38px;
 
 font-weight:700;
 
 }
 
 .subtitle{
-
-font-size:15px;
 
 opacity:.9;
 
@@ -110,33 +115,17 @@ background:#f3f3f3;
 
 }
 
-.cart{
-
-text-align:center;
-
-}
-
-.cart-count{
-
-font-size:40px;
-
-font-weight:bold;
-
-color:green;
-
-}
-
 .card{
 
-background:rgba(255,248,220,.97);
+background:rgba(255,248,220,.96);
 
 padding:20px;
 
 border-radius:25px;
 
-margin-bottom:25px;
+border:3px solid gold;
 
-border:3px solid #d4af37;
+margin-bottom:25px;
 
 box-shadow:0 10px 30px rgba(0,0,0,.25);
 
@@ -216,6 +205,16 @@ color:white;
 
 }
 
+.qty-btn{
+
+width:50px;
+
+padding:10px;
+
+margin:5px;
+
+}
+
 model-viewer{
 
 width:100%;
@@ -230,6 +229,22 @@ margin-top:15px;
 
 }
 
+.cart-box{
+
+text-align:center;
+
+}
+
+.cart-count{
+
+font-size:40px;
+
+font-weight:bold;
+
+color:green;
+
+}
+
 </style>
 
 </head>
@@ -238,7 +253,9 @@ margin-top:15px;
 
 <div class="header">
 
-<div class="logo">🍽️</div>
+<div class="logo">
+🍽️
+</div>
 
 <div class="title">
 Madhav Restaurant
@@ -252,7 +269,9 @@ Premium 3D AR Smart Menu
 
 <div class="section">
 
-<h2>Customer Details</h2>
+<h2>
+👤 Customer Details
+</h2>
 
 <input
 id="customerName"
@@ -264,9 +283,19 @@ placeholder="Table Number">
 
 </div>
 
-<div class="section cart">
+<div class="section">
 
-<h2>🛒 Cart</h2>
+<input
+id="searchFood"
+placeholder="🔍 Search Food">
+
+</div>
+
+<div class="section cart-box">
+
+<h2>
+🛒 Cart
+</h2>
 
 <div
 id="cartCount"
@@ -277,13 +306,7 @@ class="cart-count">
 </div>
 
 <h3>
-
-₹ <span id="cartTotal">0</span>
-
-</h3>
-
-</div>
-<!-- PIZZA -->
+<!-- PIZZA CARD -->
 
 <div class="card">
 
@@ -303,8 +326,7 @@ camera-controls
 auto-rotate
 loading="eager"
 reveal="auto"
-shadow-intensity="1"
-environment-image="neutral">
+shadow-intensity="1">
 
 <button
 slot="ar-button"
@@ -320,11 +342,31 @@ class="btn ar-btn">
 ₹299
 </div>
 
+<center>
+
+<button
+class="qty-btn"
+onclick="changeQty('pizza',-1)">
+➖
+</button>
+
+<span id="pizzaQty">
+0
+</span>
+
+<button
+class="qty-btn"
+onclick="changeQty('pizza',1)">
+➕
+</button>
+
+</center>
+
 <button
 class="btn add-btn"
 onclick="addToCart('Pepperoni Pizza',299)">
 
-➕ Add Pizza
+🛒 Add Pizza
 
 </button>
 
@@ -332,7 +374,7 @@ onclick="addToCart('Pepperoni Pizza',299)">
 
 
 
-<!-- BURGER -->
+<!-- BURGER CARD -->
 
 <div class="card">
 
@@ -352,8 +394,7 @@ camera-controls
 auto-rotate
 loading="eager"
 reveal="auto"
-shadow-intensity="1"
-environment-image="neutral">
+shadow-intensity="1">
 
 <button
 slot="ar-button"
@@ -369,15 +410,83 @@ class="btn ar-btn">
 ₹199
 </div>
 
+<center>
+
+<button
+class="qty-btn"
+onclick="changeQty('burger',-1)">
+➖
+</button>
+
+<span id="burgerQty">
+0
+</span>
+
+<button
+class="qty-btn"
+onclick="changeQty('burger',1)">
+➕
+</button>
+
+</center>
+
 <button
 class="btn add-btn"
 onclick="addToCart('Cheeseburger',199)">
 
-➕ Add Burger
+🛒 Add Burger
 
 </button>
 
 </div>
+  <!-- POPULAR TODAY -->
+
+<div class="section">
+
+<h2>
+🔥 Popular Today
+</h2>
+
+<p>
+🍕 Pizza • 🍔 Burger • 🍛 Biryani
+</p>
+
+</div>
+
+
+
+<!-- CATEGORY FILTERS -->
+
+<div class="section">
+
+<h2>
+📂 Categories
+</h2>
+
+<button class="btn add-btn">
+All
+</button>
+
+<button class="btn ar-btn">
+Pizza
+</button>
+
+<button class="btn ar-btn">
+Burger
+</button>
+
+<button class="btn ar-btn">
+Snacks
+</button>
+
+<button class="btn ar-btn">
+Biryani
+</button>
+
+</div>
+
+
+
 <!-- FRIES -->
 
 <div class="card">
@@ -393,13 +502,10 @@ onclick="addToCart('Cheeseburger',199)">
 <model-viewer
 src="Fries.glb"
 ar
-ar-modes="scene-viewer webxr quick-look"
 camera-controls
 auto-rotate
 loading="eager"
-reveal="auto"
-shadow-intensity="1"
-environment-image="neutral">
+reveal="auto">
 
 <button
 slot="ar-button"
@@ -415,11 +521,31 @@ class="btn ar-btn">
 ₹99
 </div>
 
+<center>
+
+<button
+class="qty-btn"
+onclick="changeQty('fries',-1)">
+➖
+</button>
+
+<span id="friesQty">
+0
+</span>
+
+<button
+class="qty-btn"
+onclick="changeQty('fries',1)">
+➕
+</button>
+
+</center>
+
 <button
 class="btn add-btn"
 onclick="addToCart('French Fries',99)">
 
-➕ Add Fries
+🛒 Add Fries
 
 </button>
 
@@ -442,13 +568,10 @@ onclick="addToCart('French Fries',99)">
 <model-viewer
 src="momo_food.glb"
 ar
-ar-modes="scene-viewer webxr quick-look"
 camera-controls
 auto-rotate
 loading="eager"
 reveal="auto"
-shadow-intensity="1"
-environment-image="neutral"
 scale="0.4 0.4 0.4">
 
 <button
@@ -465,11 +588,31 @@ class="btn ar-btn">
 ₹129
 </div>
 
+<center>
+
+<button
+class="qty-btn"
+onclick="changeQty('momos',-1)">
+➖
+</button>
+
+<span id="momosQty">
+0
+</span>
+
+<button
+class="qty-btn"
+onclick="changeQty('momos',1)">
+➕
+</button>
+
+</center>
+
 <button
 class="btn add-btn"
 onclick="addToCart('Steam Momos',129)">
 
-➕ Add Momos
+🛒 Add Momos
 
 </button>
 
@@ -492,13 +635,10 @@ onclick="addToCart('Steam Momos',129)">
 <model-viewer
 src="biryani.glb"
 ar
-ar-modes="scene-viewer webxr quick-look"
 camera-controls
 auto-rotate
 loading="eager"
 reveal="auto"
-shadow-intensity="1"
-environment-image="neutral"
 scale="0.4 0.4 0.4">
 
 <button
@@ -515,13 +655,42 @@ class="btn ar-btn">
 ₹249
 </div>
 
+<center>
+
+<button
+class="qty-btn"
+onclick="changeQty('biryani',-1)">
+➖
+</button>
+
+<span id="biryaniQty">
+0
+</span>
+
+<button
+class="qty-btn"
+onclick="changeQty('biryani',1)">
+➕
+</button>
+
+</center>
+
 <button
 class="btn add-btn"
 onclick="addToCart('Special Biryani',249)">
 
-➕ Add Biryani
+🛒 Add Biryani
 
 </button>
+
+</div>
+  
+₹
+<span id="cartTotal">
+0
+</span>
+
+</h3>
 
 </div>
 <!-- ORDER SUMMARY -->
@@ -535,39 +704,49 @@ onclick="addToCart('Special Biryani',249)">
 <br>
 
 <h3>
-Items:
-<span id="summaryCount">0</span>
+Total Items:
+<span id="summaryCount">
+0
+</span>
 </h3>
 
 <br>
 
 <h3>
 Subtotal ₹
-<span id="subtotal">0</span>
+<span id="subtotal">
+0
+</span>
 </h3>
 
 <br>
 
 <h3>
 GST (5%) ₹
-<span id="gst">0</span>
+<span id="gst">
+0
+</span>
 </h3>
 
 <br>
 
 <h2 style="color:green;">
 Grand Total ₹
-<span id="grandTotal">0</span>
+<span id="grandTotal">
+0
+</span>
 </h2>
 
 <br>
 
-<div id="orderItems"
+<div
+id="orderItems"
+
 style="
 background:#f5f5f5;
 padding:15px;
 border-radius:15px;
-min-height:100px;">
+min-height:120px;">
 
 No Items Added
 
@@ -575,16 +754,105 @@ No Items Added
 
 <br>
 
+<button
+class="btn"
+
+style="
+background:red;
+color:white;"
+
+onclick="clearCart()">
+
+🗑️ Clear Cart
+
+</button>
+
+</div>
+
+
+
+<!-- FLOATING CART -->
+
+<div
+id="floatingCart"
+
+style="
+position:fixed;
+bottom:20px;
+right:20px;
+
+background:#ff5722;
+
+color:white;
+
+padding:15px 20px;
+
+border-radius:50px;
+
+font-weight:bold;
+
+z-index:9999;
+
+box-shadow:
+0 5px 20px rgba(0,0,0,.3);">
+
+🛒
+
+<span id="floatingCount">
+0
+</span>
+
+</div>
+
+
+
+<!-- CUSTOMER BENEFITS -->
+
+<div class="section">
+
+<h2>
+⭐ Why Customers Love It
+</h2>
+
+<p>
+
+✅ 3D Food Preview
+
+<br><br>
+
+✅ AR View On Table
+
+<br><br>
+
+✅ Instant Ordering
+
+<br><br>
+
+✅ Automatic Bill
+
+<br><br>
+
+✅ Fast Service
+
+</p>
+
+</div>
+<!-- WHATSAPP ORDER -->
+
+<div class="card">
+
+<div class="food-title">
+📲 Quick Order
+</div>
+
 <a
 id="whatsappOrder"
 href="#"
 class="btn add-btn">
 
-📲 Order On WhatsApp
+Send Order On WhatsApp
 
 </a>
-
-<br>
 
 <a
 href="tel:9162035250"
@@ -606,42 +874,76 @@ class="btn ar-btn">
 ⭐ Customer Feedback
 </div>
 
-<br>
+<input
+id="feedbackName"
+placeholder="Your Name">
 
 <textarea
-placeholder="Write your feedback..."
+
+id="feedbackText"
+
 style="
 width:100%;
 height:120px;
 padding:15px;
+margin-top:10px;
 border:none;
 border-radius:15px;
-background:#f5f5f5;">
+background:#f3f3f3;"
+
+placeholder="Write Feedback">
+
 </textarea>
 
-</div>
+<button
+class="btn add-btn"
+onclick="sendFeedback()">
 
+Submit Feedback
 
-
-<!-- FOOTER -->
-
-<div style="
-text-align:center;
-padding:30px;
-color:white;
-font-size:18px;
-font-weight:bold;">
-
-🍽️ Madhav Restaurant
-
-<br><br>
-
-Premium 3D AR Smart Menu
+</button>
 
 </div>
 
 
 
+<!-- DARK MODE -->
+
+<div class="card">
+
+<div class="food-title">
+🌙 Theme
+</div>
+
+<button
+class="btn ar-btn"
+onclick="toggleDarkMode()">
+
+Toggle Dark Mode
+
+</button>
+
+</div>
+
+
+
+<!-- DASHBOARD BUTTON -->
+
+<div class="card">
+
+<div class="food-title">
+📊 Owner Dashboard
+</div>
+
+<a
+href="dashboard.html"
+class="btn add-btn">
+
+Open Dashboard
+
+</a>
+
+</div>
 <script>
 
 let total = 0;
@@ -651,48 +953,77 @@ let items = [];
 function addToCart(name,price){
 
 count++;
+
 total += price;
 
 items.push(name + " - ₹" + price);
 
-document.getElementById("cartCount").innerText = count;
-document.getElementById("summaryCount").innerText = count;
+document.getElementById(
+"cartCount"
+).innerText = count;
+
+document.getElementById(
+"summaryCount"
+).innerText = count;
+
+document.getElementById(
+"floatingCount"
+).innerText = count;
+
+document.getElementById(
+"orderItems"
+).innerHTML =
+items.join("<br>");
 
 updateBill();
-
-document.getElementById("orderItems").innerHTML =
-items.join("<br>");
 
 updateWhatsapp();
 
 }
 
+
+
 function updateBill(){
 
 let gst = total * 0.05;
+
 let grand = total + gst;
 
-document.getElementById("subtotal").innerText =
+document.getElementById(
+"subtotal"
+).innerText =
 total.toFixed(2);
 
-document.getElementById("gst").innerText =
+document.getElementById(
+"gst"
+).innerText =
 gst.toFixed(2);
 
-document.getElementById("grandTotal").innerText =
+document.getElementById(
+"grandTotal"
+).innerText =
 grand.toFixed(2);
 
-document.getElementById("cartTotal").innerText =
+document.getElementById(
+"cartTotal"
+).innerText =
 grand.toFixed(2);
 
 }
 
+
+
 function updateWhatsapp(){
 
 let customer =
-document.getElementById("customerName").value;
+document.getElementById(
+"customerName"
+).value;
 
 let table =
-document.getElementById("tableNumber").value;
+document.getElementById(
+"tableNumber"
+).value;
 
 let grand =
 (total + total*0.05).toFixed(2);
@@ -701,11 +1032,15 @@ let message =
 
 "🍽️ MADHAV RESTAURANT%0A%0A" +
 
-"Customer: " + customer +
+"Customer: " +
+
+customer +
 
 "%0A" +
 
-"Table: " + table +
+"Table: " +
+
+table +
 
 "%0A%0AItems:%0A" +
 
@@ -715,17 +1050,186 @@ items.join("%0A") +
 
 grand;
 
-document.getElementById("whatsappOrder").href =
+document.getElementById(
+"whatsappOrder"
+).href =
 
-"https://wa.me/9162035250?text=" + message;
+"https://wa.me/9162035250?text=" +
+message;
 
 }
 
-document.getElementById("customerName")
-.addEventListener("input",updateWhatsapp);
 
-document.getElementById("tableNumber")
-.addEventListener("input",updateWhatsapp);
+
+function clearCart(){
+
+count = 0;
+
+total = 0;
+
+items = [];
+
+document.getElementById(
+"cartCount"
+).innerText = 0;
+
+document.getElementById(
+"summaryCount"
+).innerText = 0;
+
+document.getElementById(
+"floatingCount"
+).innerText = 0;
+
+document.getElementById(
+"subtotal"
+).innerText = 0;
+
+document.getElementById(
+"gst"
+).innerText = 0;
+
+document.getElementById(
+"grandTotal"
+).innerText = 0;
+
+document.getElementById(
+"cartTotal"
+).innerText = 0;
+
+document.getElementById(
+"orderItems"
+).innerHTML =
+"No Items Added";
+
+}
+
+
+
+function sendFeedback(){
+
+let name =
+
+document.getElementById(
+"feedbackName"
+).value;
+
+let feedback =
+
+document.getElementById(
+"feedbackText"
+).value;
+
+window.open(
+
+"https://wa.me/9162035250?text=" +
+
+"⭐ Feedback%0A%0AName: " +
+
+name +
+
+"%0AFeedback: " +
+
+feedback
+
+);
+
+}
+
+
+
+function toggleDarkMode(){
+
+document.body.classList.toggle(
+"dark"
+);
+
+}
+
+
+
+function changeQty(item,value){
+
+let qtyElement =
+document.getElementById(
+item + "Qty"
+);
+
+let qty =
+parseInt(qtyElement.innerText);
+
+qty += value;
+
+if(qty < 0){
+
+qty = 0;
+
+}
+
+qtyElement.innerText = qty;
+
+}
+
+
+
+function searchFood(){
+
+let input =
+
+document.getElementById(
+"searchFood"
+).value.toLowerCase();
+
+let cards =
+
+document.getElementsByClassName(
+"card"
+);
+
+for(let i=0;i<cards.length;i++){
+
+let text =
+
+cards[i].innerText.toLowerCase();
+
+if(text.includes(input)){
+
+cards[i].style.display =
+"block";
+
+}else{
+
+cards[i].style.display =
+"none";
+
+}
+
+}
+
+}
+
+
+
+document.getElementById(
+"searchFood"
+).addEventListener(
+"keyup",
+searchFood
+);
+
+document.getElementById(
+"customerName"
+).addEventListener(
+"input",
+updateWhatsapp
+);
+
+document.getElementById(
+"tableNumber"
+).addEventListener(
+"input",
+updateWhatsapp
+);
 
 </script>
 
