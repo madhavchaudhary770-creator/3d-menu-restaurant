@@ -4,13 +4,9 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-content="width=device-width,initial-scale=1.0">
-
-<title>
-Madhav Restaurant
-</title>
+<title>Madhav Restaurant Premium</title>
 
 <script type="module"
 src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
@@ -25,7 +21,7 @@ rel="stylesheet">
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Poppins,sans-serif;
+font-family:'Poppins',sans-serif;
 }
 
 body{
@@ -39,6 +35,7 @@ url("file_00000000cafc71fab85514812e5ec4fa.png");
 
 background-size:cover;
 background-position:center;
+background-repeat:no-repeat;
 background-attachment:fixed;
 
 padding:15px;
@@ -49,19 +46,22 @@ padding:15px;
 
 background:rgba(0,0,0,.65);
 
-backdrop-filter:blur(15px);
+backdrop-filter:blur(20px);
+
+border:2px solid gold;
 
 padding:25px;
 
 border-radius:25px;
-
-border:2px solid gold;
 
 text-align:center;
 
 color:white;
 
 margin-bottom:20px;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.4);
 
 }
 
@@ -81,9 +81,9 @@ font-weight:700;
 
 .subtitle{
 
-opacity:.9;
-
 margin-top:8px;
+
+opacity:.9;
 
 }
 
@@ -97,37 +97,25 @@ border-radius:20px;
 
 margin-bottom:20px;
 
-}
-
-input{
-
-width:100%;
-
-padding:14px;
-
-margin-top:10px;
-
-border:none;
-
-border-radius:12px;
-
-background:#f3f3f3;
+box-shadow:
+0 5px 20px rgba(0,0,0,.15);
 
 }
 
 .card{
 
-background:rgba(255,248,220,.96);
+background:rgba(255,248,220,.97);
 
 padding:20px;
 
 border-radius:25px;
 
-border:3px solid gold;
-
 margin-bottom:25px;
 
-box-shadow:0 10px 30px rgba(0,0,0,.25);
+border:3px solid gold;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.25);
 
 }
 
@@ -166,6 +154,25 @@ font-weight:bold;
 color:green;
 
 margin-top:10px;
+
+}
+
+input,
+textarea{
+
+width:100%;
+
+padding:14px;
+
+margin-top:10px;
+
+border:none;
+
+border-radius:12px;
+
+background:#f3f3f3;
+
+font-size:16px;
 
 }
 
@@ -245,6 +252,32 @@ color:green;
 
 }
 
+/* DARK MODE */
+
+.dark{
+
+background:#111 !important;
+
+}
+
+.dark .section,
+.dark .card{
+
+background:#222 !important;
+
+color:white;
+
+}
+
+.dark input,
+.dark textarea{
+
+background:#333 !important;
+
+color:white;
+
+}
+
 </style>
 
 </head>
@@ -266,6 +299,7 @@ Premium 3D AR Smart Menu
 </div>
 
 </div>
+<!-- CUSTOMER DETAILS -->
 
 <div class="section">
 
@@ -283,13 +317,72 @@ placeholder="Table Number">
 
 </div>
 
+
+
+<!-- SEARCH -->
+
 <div class="section">
+
+<h2>
+🔍 Search Food
+</h2>
 
 <input
 id="searchFood"
-placeholder="🔍 Search Food">
+placeholder="Search Pizza, Burger, Momos...">
 
 </div>
+
+
+
+<!-- CATEGORY FILTERS -->
+
+<div class="section">
+
+<h2>
+📂 Categories
+</h2>
+
+<button
+class="btn add-btn">
+
+All
+
+</button>
+
+<button
+class="btn ar-btn">
+
+Pizza
+
+</button>
+
+<button
+class="btn ar-btn">
+
+Burger
+
+</button>
+
+<button
+class="btn ar-btn">
+
+Snacks
+
+</button>
+
+<button
+class="btn ar-btn">
+
+Biryani
+
+</button>
+
+</div>
+
+
+
+<!-- CART -->
 
 <div class="section cart-box">
 
@@ -306,7 +399,56 @@ class="cart-count">
 </div>
 
 <h3>
-<!-- PIZZA CARD -->
+
+₹
+
+<span id="cartTotal">
+
+0
+
+</span>
+
+</h3>
+
+</div>
+
+
+
+<!-- FLOATING CART -->
+
+<div
+id="floatingCart"
+
+style="
+position:fixed;
+bottom:20px;
+right:20px;
+
+background:#ff5722;
+
+color:white;
+
+padding:15px 20px;
+
+border-radius:50px;
+
+font-weight:bold;
+
+z-index:9999;
+
+box-shadow:
+0 5px 20px rgba(0,0,0,.3);">
+
+🛒
+
+<span id="floatingCount">
+
+0
+
+</span>
+
+  </div>
+  <!-- PIZZA -->
 
 <div class="card">
 
@@ -374,7 +516,7 @@ onclick="addToCart('Pepperoni Pizza',299)">
 
 
 
-<!-- BURGER CARD -->
+<!-- BURGER -->
 
 <div class="card">
 
@@ -439,7 +581,7 @@ onclick="addToCart('Cheeseburger',199)">
 </button>
 
 </div>
-  <!-- POPULAR TODAY -->
+<!-- POPULAR TODAY -->
 
 <div class="section">
 
@@ -448,40 +590,18 @@ onclick="addToCart('Cheeseburger',199)">
 </h2>
 
 <p>
-🍕 Pizza • 🍔 Burger • 🍛 Biryani
+
+🍕 Pizza
+
+<br><br>
+
+🍔 Burger
+
+<br><br>
+
+🍛 Biryani
+
 </p>
-
-</div>
-
-
-
-<!-- CATEGORY FILTERS -->
-
-<div class="section">
-
-<h2>
-📂 Categories
-</h2>
-
-<button class="btn add-btn">
-All
-</button>
-
-<button class="btn ar-btn">
-Pizza
-</button>
-
-<button class="btn ar-btn">
-Burger
-</button>
-
-<button class="btn ar-btn">
-Snacks
-</button>
-
-<button class="btn ar-btn">
-Biryani
-</button>
 
 </div>
 
@@ -502,6 +622,7 @@ Biryani
 <model-viewer
 src="Fries.glb"
 ar
+ar-modes="scene-viewer webxr quick-look"
 camera-controls
 auto-rotate
 loading="eager"
@@ -568,6 +689,7 @@ onclick="addToCart('French Fries',99)">
 <model-viewer
 src="momo_food.glb"
 ar
+ar-modes="scene-viewer webxr quick-look"
 camera-controls
 auto-rotate
 loading="eager"
@@ -635,6 +757,7 @@ onclick="addToCart('Steam Momos',129)">
 <model-viewer
 src="biryani.glb"
 ar
+ar-modes="scene-viewer webxr quick-look"
 camera-controls
 auto-rotate
 loading="eager"
@@ -682,15 +805,6 @@ onclick="addToCart('Special Biryani',249)">
 🛒 Add Biryani
 
 </button>
-
-</div>
-  
-₹
-<span id="cartTotal">
-0
-</span>
-
-</h3>
 
 </div>
 <!-- ORDER SUMMARY -->
@@ -756,11 +870,9 @@ No Items Added
 
 <button
 class="btn"
-
 style="
 background:red;
 color:white;"
-
 onclick="clearCart()">
 
 🗑️ Clear Cart
@@ -771,72 +883,6 @@ onclick="clearCart()">
 
 
 
-<!-- FLOATING CART -->
-
-<div
-id="floatingCart"
-
-style="
-position:fixed;
-bottom:20px;
-right:20px;
-
-background:#ff5722;
-
-color:white;
-
-padding:15px 20px;
-
-border-radius:50px;
-
-font-weight:bold;
-
-z-index:9999;
-
-box-shadow:
-0 5px 20px rgba(0,0,0,.3);">
-
-🛒
-
-<span id="floatingCount">
-0
-</span>
-
-</div>
-
-
-
-<!-- CUSTOMER BENEFITS -->
-
-<div class="section">
-
-<h2>
-⭐ Why Customers Love It
-</h2>
-
-<p>
-
-✅ 3D Food Preview
-
-<br><br>
-
-✅ AR View On Table
-
-<br><br>
-
-✅ Instant Ordering
-
-<br><br>
-
-✅ Automatic Bill
-
-<br><br>
-
-✅ Fast Service
-
-</p>
-
-</div>
 <!-- WHATSAPP ORDER -->
 
 <div class="card">
@@ -854,18 +900,27 @@ Send Order On WhatsApp
 
 </a>
 
-<a
-href="tel:9162035250"
-class="btn ar-btn">
-
-📞 Call Restaurant
-
-</a>
-
 </div>
 
 
 
+<!-- CALL RESTAURANT -->
+
+<div class="card">
+
+<div class="food-title">
+📞 Contact Restaurant
+</div>
+
+<a
+href="tel:9162035250"
+class="btn ar-btn">
+
+Call Now
+
+</a>
+
+</div>
 <!-- FEEDBACK -->
 
 <div class="card">
@@ -879,20 +934,10 @@ id="feedbackName"
 placeholder="Your Name">
 
 <textarea
-
 id="feedbackText"
-
+placeholder="Write your feedback..."
 style="
-width:100%;
-height:120px;
-padding:15px;
-margin-top:10px;
-border:none;
-border-radius:15px;
-background:#f3f3f3;"
-
-placeholder="Write Feedback">
-
+height:120px;">
 </textarea>
 
 <button
@@ -912,7 +957,7 @@ Submit Feedback
 <div class="card">
 
 <div class="food-title">
-🌙 Theme
+🌙 Theme Settings
 </div>
 
 <button
@@ -927,7 +972,7 @@ Toggle Dark Mode
 
 
 
-<!-- DASHBOARD BUTTON -->
+<!-- DASHBOARD -->
 
 <div class="card">
 
@@ -944,11 +989,33 @@ Open Dashboard
 </a>
 
 </div>
+
+
+
+<!-- FOOTER -->
+
+<div
+style="
+text-align:center;
+padding:30px;
+color:white;
+font-weight:bold;
+font-size:18px;">
+
+🍽️ Madhav Restaurant
+
+<br><br>
+
+Premium 3D AR Smart Menu
+
+</div>
 <script>
 
 let total = 0;
 let count = 0;
 let items = [];
+
+
 
 function addToCart(name,price){
 
@@ -1016,30 +1083,32 @@ grand.toFixed(2);
 function updateWhatsapp(){
 
 let customer =
+
 document.getElementById(
 "customerName"
 ).value;
 
 let table =
+
 document.getElementById(
 "tableNumber"
 ).value;
 
 let grand =
-(total + total*0.05).toFixed(2);
+
+(total + total*0.05)
+.toFixed(2);
 
 let message =
 
 "🍽️ MADHAV RESTAURANT%0A%0A" +
 
 "Customer: " +
-
 customer +
 
 "%0A" +
 
 "Table: " +
-
 table +
 
 "%0A%0AItems:%0A" +
@@ -1151,12 +1220,16 @@ document.body.classList.toggle(
 function changeQty(item,value){
 
 let qtyElement =
+
 document.getElementById(
 item + "Qty"
 );
 
 let qty =
-parseInt(qtyElement.innerText);
+
+parseInt(
+qtyElement.innerText
+);
 
 qty += value;
 
@@ -1178,33 +1251,38 @@ let input =
 
 document.getElementById(
 "searchFood"
-).value.toLowerCase();
+).value
+.toLowerCase();
 
 let cards =
 
-document.getElementsByClassName(
-"card"
+document.querySelectorAll(
+".card"
 );
 
-for(let i=0;i<cards.length;i++){
+cards.forEach(card=>{
 
 let text =
 
-cards[i].innerText.toLowerCase();
+card.innerText
+.toLowerCase();
 
-if(text.includes(input)){
+if(
+input === "" ||
+text.includes(input)
+){
 
-cards[i].style.display =
+card.style.display =
 "block";
 
 }else{
 
-cards[i].style.display =
+card.style.display =
 "none";
 
 }
 
-}
+});
 
 }
 
@@ -1231,7 +1309,6 @@ document.getElementById(
 updateWhatsapp
 );
 
-</script>
-
-</body>
+  </script>
+  </body>
 </html>
