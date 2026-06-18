@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Madhav Restaurant Premium</title>
+<title>Madhav Restaurant</title>
 
 <script type="module"
 src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
 </script>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -18,159 +19,219 @@ src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+font-family:Poppins,sans-serif;
 }
 
 body{
-background:linear-gradient(
-135deg,
-#ff512f,
-#dd2476,
-#4facfe,
-#43e97b
-);
-background-size:400% 400%;
-animation:bg 10s ease infinite;
-padding:15px;
-}
 
-@keyframes bg{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
+background:
+linear-gradient(
+rgba(0,0,0,.45),
+rgba(0,0,0,.45)
+),
+url("file_00000000cafc71fab85514812e5ec4fa.png");
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+
+padding:15px;
 }
 
 .header{
-background:rgba(255,255,255,.15);
+
+background:rgba(0,0,0,.65);
+
 backdrop-filter:blur(15px);
+
+border:2px solid #d4af37;
+
 padding:25px;
+
 border-radius:25px;
+
 text-align:center;
+
 color:white;
-box-shadow:0 10px 30px rgba(0,0,0,.25);
+
 margin-bottom:20px;
+
 }
 
 .logo{
-font-size:70px;
+
+font-size:65px;
+
 }
 
 .title{
-font-size:38px;
+
+font-size:35px;
+
 font-weight:700;
+
 }
 
 .subtitle{
-font-size:16px;
+
+font-size:15px;
+
 opacity:.9;
+
 margin-top:8px;
+
 }
 
 .section{
-background:white;
-padding:20px;
-border-radius:25px;
-margin-bottom:20px;
-box-shadow:0 10px 25px rgba(0,0,0,.15);
-}
 
-.section h2{
-margin-bottom:10px;
-color:#ff512f;
+background:rgba(255,255,255,.95);
+
+padding:20px;
+
+border-radius:20px;
+
+margin-bottom:20px;
+
 }
 
 input{
-width:100%;
-padding:14px;
-margin-top:10px;
-border:none;
-border-radius:12px;
-background:#f3f3f3;
-font-size:16px;
-}
 
-.search{
-font-size:18px;
+width:100%;
+
+padding:14px;
+
+margin-top:10px;
+
+border:none;
+
+border-radius:12px;
+
+background:#f3f3f3;
+
 }
 
 .cart{
+
 text-align:center;
+
 }
 
 .cart-count{
+
 font-size:40px;
+
 font-weight:bold;
-color:#00c853;
+
+color:green;
+
 }
 
 .card{
-background:white;
+
+background:rgba(255,248,220,.97);
+
 padding:20px;
+
 border-radius:25px;
+
 margin-bottom:25px;
-box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+border:3px solid #d4af37;
+
+box-shadow:0 10px 30px rgba(0,0,0,.25);
+
 }
 
 .food-title{
-font-size:28px;
-font-weight:700;
-text-align:center;
-}
 
-.badge{
-display:inline-block;
-background:red;
-color:white;
-padding:6px 12px;
-border-radius:30px;
-font-size:12px;
+font-size:28px;
+
+font-weight:bold;
+
+text-align:center;
+
+color:#7b3f00;
+
 }
 
 .rating{
-text-align:center;
-font-size:20px;
-color:gold;
-margin-top:8px;
-}
 
-model-viewer{
-width:100%;
-height:350px;
-background:#f5f5f5;
-border-radius:20px;
-margin-top:15px;
+text-align:center;
+
+font-size:20px;
+
+color:gold;
+
+margin-top:10px;
+
 }
 
 .price{
-font-size:30px;
-font-weight:bold;
+
 text-align:center;
+
+font-size:30px;
+
+font-weight:bold;
+
 color:green;
+
 margin-top:10px;
+
 }
 
 .btn{
+
 width:100%;
+
 padding:15px;
+
 border:none;
+
 border-radius:15px;
+
 font-size:18px;
+
 font-weight:bold;
+
 cursor:pointer;
+
 margin-top:10px;
+
 }
 
 .add-btn{
-background:#00c853;
+
+background:#ff5722;
+
 color:white;
+
 }
 
 .ar-btn{
-background:#111;
+
+background:#1b5e20;
+
 color:white;
+
+}
+
+model-viewer{
+
+width:100%;
+
+height:350px;
+
+background:#f5f5f5;
+
+border-radius:20px;
+
+margin-top:15px;
+
 }
 
 </style>
+
 </head>
 
 <body>
@@ -191,7 +252,7 @@ Premium 3D AR Smart Menu
 
 <div class="section">
 
-<h2>👤 Customer Details</h2>
+<h2>Customer Details</h2>
 
 <input
 id="customerName"
@@ -200,14 +261,6 @@ placeholder="Customer Name">
 <input
 id="tableNumber"
 placeholder="Table Number">
-
-</div>
-
-<div class="section">
-
-<input
-class="search"
-placeholder="🔍 Search Food">
 
 </div>
 
@@ -224,20 +277,15 @@ class="cart-count">
 </div>
 
 <h3>
-Total ₹
-<span id="cartTotal">0</span>
+
+₹ <span id="cartTotal">0</span>
+
 </h3>
 
 </div>
 <!-- PIZZA -->
 
 <div class="card">
-
-<center>
-<div class="badge">
-🔥 BEST SELLER
-</div>
-</center>
 
 <div class="food-title">
 🍕 Pepperoni Pizza
@@ -249,10 +297,10 @@ Total ₹
 
 <model-viewer
 src="Pepperoni pizza.glb"
-camera-controls
-auto-rotate
 ar
 ar-modes="scene-viewer webxr quick-look"
+camera-controls
+auto-rotate
 loading="eager"
 reveal="auto"
 shadow-intensity="1"
@@ -283,15 +331,10 @@ onclick="addToCart('Pepperoni Pizza',299)">
 </div>
 
 
+
 <!-- BURGER -->
 
 <div class="card">
-
-<center>
-<div class="badge">
-👑 CHEF SPECIAL
-</div>
-</center>
 
 <div class="food-title">
 🍔 Cheeseburger
@@ -303,10 +346,10 @@ onclick="addToCart('Pepperoni Pizza',299)">
 
 <model-viewer
 src="Cheeseburger.glb"
-camera-controls
-auto-rotate
 ar
 ar-modes="scene-viewer webxr quick-look"
+camera-controls
+auto-rotate
 loading="eager"
 reveal="auto"
 shadow-intensity="1"
@@ -339,12 +382,6 @@ onclick="addToCart('Cheeseburger',199)">
 
 <div class="card">
 
-<center>
-<div class="badge">
-🍟 CRISPY SPECIAL
-</div>
-</center>
-
 <div class="food-title">
 🍟 French Fries
 </div>
@@ -355,10 +392,10 @@ onclick="addToCart('Cheeseburger',199)">
 
 <model-viewer
 src="Fries.glb"
-camera-controls
-auto-rotate
 ar
 ar-modes="scene-viewer webxr quick-look"
+camera-controls
+auto-rotate
 loading="eager"
 reveal="auto"
 shadow-intensity="1"
@@ -394,12 +431,6 @@ onclick="addToCart('French Fries',99)">
 
 <div class="card">
 
-<center>
-<div class="badge">
-🥟 HOT SELLING
-</div>
-</center>
-
 <div class="food-title">
 🥟 Steam Momos
 </div>
@@ -409,16 +440,16 @@ onclick="addToCart('French Fries',99)">
 </div>
 
 <model-viewer
-src="Chukaman Steamed Dumplings.glb"
-camera-controls
-auto-rotate
+src="momo_food.glb"
 ar
 ar-modes="scene-viewer webxr quick-look"
+camera-controls
+auto-rotate
 loading="eager"
 reveal="auto"
 shadow-intensity="1"
 environment-image="neutral"
-scale="0.5 0.5 0.5">
+scale="0.4 0.4 0.4">
 
 <button
 slot="ar-button"
@@ -446,18 +477,12 @@ onclick="addToCart('Steam Momos',129)">
 
 
 
-<!-- RICE BOWL -->
+<!-- BIRYANI -->
 
 <div class="card">
 
-<center>
-<div class="badge">
-🍛 MOST POPULAR
-</div>
-</center>
-
 <div class="food-title">
-🍛 Bowl Of Rice
+🍛 Special Biryani
 </div>
 
 <div class="rating">
@@ -465,22 +490,22 @@ onclick="addToCart('Steam Momos',129)">
 </div>
 
 <model-viewer
-src="Bowl of rice.glb"
-camera-controls
-auto-rotate
+src="biryani.glb"
 ar
 ar-modes="scene-viewer webxr quick-look"
+camera-controls
+auto-rotate
 loading="eager"
 reveal="auto"
 shadow-intensity="1"
 environment-image="neutral"
-scale="0.5 0.5 0.5">
+scale="0.4 0.4 0.4">
 
 <button
 slot="ar-button"
 class="btn ar-btn">
 
-📱 View Rice On Table
+📱 View Biryani On Table
 
 </button>
 
@@ -492,9 +517,9 @@ class="btn ar-btn">
 
 <button
 class="btn add-btn"
-onclick="addToCart('Rice Bowl',249)">
+onclick="addToCart('Special Biryani',249)">
 
-➕ Add Rice Bowl
+➕ Add Biryani
 
 </button>
 
@@ -510,7 +535,7 @@ onclick="addToCart('Rice Bowl',249)">
 <br>
 
 <h3>
-Items :
+Items:
 <span id="summaryCount">0</span>
 </h3>
 
@@ -537,8 +562,7 @@ Grand Total ₹
 
 <br>
 
-<div
-id="orderItems"
+<div id="orderItems"
 style="
 background:#f5f5f5;
 padding:15px;
@@ -585,7 +609,7 @@ class="btn ar-btn">
 <br>
 
 <textarea
-placeholder="Write your feedback here..."
+placeholder="Write your feedback..."
 style="
 width:100%;
 height:120px;
@@ -599,48 +623,20 @@ background:#f5f5f5;">
 
 
 
-<!-- UPI PAYMENT -->
-
-<div class="card">
-
-<div class="food-title">
-💳 UPI Payment
-</div>
-
-<br>
-
-<p style="text-align:center;">
-Scan QR Code & Pay
-</p>
-
-<br>
-
-<img
-src="YOUR_QR_IMAGE.png"
-style="
-width:250px;
-display:block;
-margin:auto;
-border-radius:15px;">
-
-</div>
-
-
-
 <!-- FOOTER -->
 
 <div style="
 text-align:center;
 padding:30px;
 color:white;
-font-weight:bold;
-font-size:18px;">
+font-size:18px;
+font-weight:bold;">
 
 🍽️ Madhav Restaurant
 
 <br><br>
 
-Premium Smart 3D AR Restaurant Menu
+Premium 3D AR Smart Menu
 
 </div>
 
@@ -650,13 +646,11 @@ Premium Smart 3D AR Restaurant Menu
 
 let total = 0;
 let count = 0;
-
 let items = [];
 
 function addToCart(name,price){
 
 count++;
-
 total += price;
 
 items.push(name + " - ₹" + price);
@@ -671,14 +665,11 @@ items.join("<br>");
 
 updateWhatsapp();
 
-alert("✅ " + name + " Added");
-
 }
 
 function updateBill(){
 
 let gst = total * 0.05;
-
 let grand = total + gst;
 
 document.getElementById("subtotal").innerText =
@@ -703,9 +694,6 @@ document.getElementById("customerName").value;
 let table =
 document.getElementById("tableNumber").value;
 
-let gst =
-(total * 0.05).toFixed(2);
-
 let grand =
 (total + total*0.05).toFixed(2);
 
@@ -713,19 +701,19 @@ let message =
 
 "🍽️ MADHAV RESTAURANT%0A%0A" +
 
-"Customer : " + customer +
+"Customer: " + customer +
 
 "%0A" +
 
-"Table : " + table +
+"Table: " + table +
 
 "%0A%0AItems:%0A" +
 
 items.join("%0A") +
 
-"%0A%0AGST : ₹" + gst +
+"%0A%0AGrand Total: ₹" +
 
-"%0AGrand Total : ₹" + grand;
+grand;
 
 document.getElementById("whatsappOrder").href =
 
@@ -743,28 +731,3 @@ document.getElementById("tableNumber")
 
 </body>
 </html>
-<!-- UPI PAYMENT -->
-
-<div class="card">
-
-<div class="food-title">
-💳 UPI Payment
-</div>
-
-<br>
-
-<p style="text-align:center;">
-Scan QR Code & Pay
-</p>
-
-<br>
-
-<img
-src="YOUR_QR_IMAGE.png"
-style="
-width:250px;
-display:block;
-margin:auto;
-border-radius:15px;">
-
-</div>
